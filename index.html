@@ -5,10 +5,62 @@
     <link rel="icon" type="image/png" href="/bryntum.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles.css">
-    <title>Vite App</title>
+    <title>Calendar App</title>
   </head>
   <body>
-    <div id="container" role="main">
+    <div class="app-layout">
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <span class="company-name">Company name</span>
+        </div>
+        <ul class="sidebar-nav">
+          <li><a href="#dashboard" class="nav-link active"><span>Dashboard</span></a></li>
+          <li><a href="#analytics" class="nav-link"><span>Analytics</span></a></li>
+          <li><a href="#documentation" class="nav-link"><span>Documentation</span></a></li>
+          <li><a href="#settings" class="nav-link"><span>Settings</span></a></li>
+        </ul>
+      </nav>
+      <main class="main-content">
+        <header class="main-header">
+          <input class="search-bar" type="text" placeholder="search" />
+          <button class="profile-btn" aria-label="Profile">
+            <span class="profile-icon"></span>
+          </button>
+        </header>
+        <section id="dashboard-page" class="page-section">
+          <div id="container" role="main"></div>
+        </section>
+        <section id="analytics-page" class="page-section" style="display:none"><h2>Analytics page</h2></section>
+        <section id="documentation-page" class="page-section" style="display:none"><h2>Documentation page</h2></section>
+        <section id="settings-page" class="page-section" style="display:none"><h2>Settings page</h2></section>
+      </main>
+    </div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      // Simple navigation logic
+      const links = document.querySelectorAll('.nav-link');
+      const pages = {
+        dashboard: document.getElementById('dashboard-page'),
+        analytics: document.getElementById('analytics-page'),
+        documentation: document.getElementById('documentation-page'),
+        settings: document.getElementById('settings-page')
+      };
+      function showPage(page) {
+        Object.keys(pages).forEach(key => {
+          pages[key].style.display = key === page ? '' : 'none';
+        });
+        links.forEach(link => link.classList.remove('active'));
+        document.querySelector(`.nav-link[href="#${page}"]`).classList.add('active');
+      }
+      links.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const page = link.getAttribute('href').replace('#', '');
+          showPage(page);
+        });
+      });
+      // Show dashboard by default
+      showPage('dashboard');
+    </script>
   </body>
 </html>

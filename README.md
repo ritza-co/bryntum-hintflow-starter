@@ -36,4 +36,4 @@ npm run dev
 
 Open `http://localhost:5173`. You'll see a Bryntum Calendar:
 
-![Bryntum Calendar](./assets/bryntum-calendar.png)
+![Bryntum Calendar](./assets/bryntum-calendar-app.png)

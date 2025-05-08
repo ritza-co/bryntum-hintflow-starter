@@ -10,159 +10,99 @@ body {
 }
 
 #container {
-  margin         : 0;
-  display        : flex;
-  flex-direction : column;
-  height         : 100vh;
-  font-size      : 14px;
+  margin: 0;
+  height: 80vh;
 }
 
-.b-event-body{
-  max-width:calc(100% - 20px);
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 2em 0;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em 1em 1em 1.5em;
+}
+.company-name {
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
-.b-cal-invitees{
-  position:absolute;
-  top:3px;
-  right:3px;
-  font-size:0.8em;
+.sidebar-nav {
+  list-style: none;
+  padding: 2rem 2rem 0 1.5em;
+  margin: 0;
 }
 
-.is-sunday{
-  background-color:rgba(255, 200, 200, 0.4) !important;
+.sidebar-nav li {
+  margin-bottom: 1.5em;
 }
 
-.b-allday .b-event-image{
-  display:none;
+.sidebar-nav .nav-link {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1em;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
 }
-.b-allday .b-cal-invitees{
-  position:static;
-  margin-inline-start:0.3em;
+.sidebar-nav .nav-link.active {
+  font-weight: 700;
+  color: #000;
 }
-
-.b-event-image{
-  max-width:100%;
-  padding:0.2em 0;
+.sidebar-nav .nav-link span {
+  margin-left: 0.5em;
 }
-
-.b-dayview-day-detail .b-cal-event-desc{
-  display:flex;
-  height:100%;
-  flex-direction:column;
-  justify-content:space-between;
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fafbfc;
 }
-
-.b-dayview-day-container .b-calendar-cell .b-cal-event-wrap{
-  border-radius:5px;
+.main-header {
+  display: flex;
+  align-items: center;
+  padding: 1em 1em 1em 2em;
+  background: #fafbfc;
+  border-bottom: 1px solid #eee;
 }
-.b-dayview-day-container .b-calendar-cell .b-cal-event{
-  border:1px solid var(--cal-event-color);
-  border-radius:5px;
-  margin-bottom:0.5px;
+.search-bar {
+  flex: 1;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  margin-right: 2em;
 }
-.b-dayview-day-container .b-calendar-cell .b-cal-event .b-cal-event-body{
-  margin:0;
+.profile-btn {
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-
-[data-group=multiDays].b-checked i::before{
-  content:"\f00c";
+.profile-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  display: inline-block;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="12" r="7" fill="none" stroke="%23999" stroke-width="2"/><ellipse cx="16" cy="24" rx="10" ry="6" fill="none" stroke="%23999" stroke-width="2"/></svg>') center/60% no-repeat;
 }
-[data-group=multiDays]:not(.b-checked) i::before{
-  content:" ";
+.page-section {
+  display: block;
+  height: 100%;
+  padding: 2em;
 }
-
-.b-week-number-cell{
-  justify-content:center;
-  align-items:center;
-}
-.b-week-number-cell .b-week-name{
-  writing-mode:tb;
-  display:flex;
-  align-items:center;
-  transform:rotateZ(180deg);
-}
-
-.b-calendar .b-show-week-cb-label{
-  font-size:1.2em;
-}
-
-.b-calendarrow .b-highlight-day{
-  font-size:120%;
-}
-
-.hackathon-dayoff .b-cal-event .b-cal-event-icon:before{
-  content:"\f118";
-  font-size:1em;
-  color:yellow;
-  webkit-font-smoothing: antialiased;
-  z-index:1;
-  text-shadow:0 0 1px #000, 0 0 1px #000, 0 0 1px #000;
-  margin-inline-start:0.5em;
-}
-
-.b-cal-agenda-event-row .b-cal-event-wrap.b-with-image .b-cal-event{
-  align-items:flex-start;
-}
-.b-cal-agenda-event-row .b-cal-event-wrap.b-with-image .b-cal-event .b-cal-event-icon{
-  display:block;
-}
-.b-cal-agenda-event-row .b-cal-event-wrap.b-with-image .b-cal-event-desc{
-  align-items:flex-start;
-}
-.b-cal-agenda-event-row .b-cal-event-wrap.b-with-image .b-cal-event-body .b-event-name{
-  margin:0 0 0.3em 0;
-}
-
-:is(.b-daycellrenderer, .b-overflowpopup) .b-cal-event-bar-container .b-cal-event-wrap:not(.b-continues-past, .b-continues-future){
-  padding-inline:4px 5px;
-}
-:is(.b-daycellrenderer, .b-overflowpopup) .b-cal-event-bar-container .b-cal-event-wrap:not(.b-continues-past, .b-continues-future) .b-cal-event{
-  border-left:0.3em solid var(--cal-event-color);
-  background-color:color-mix(in srgb, var(--cal-event-color), #fff 75%);
-  border-radius:0;
-}
-:is(.b-daycellrenderer, .b-overflowpopup) .b-cal-event-bar-container .b-cal-event-wrap:not(.b-continues-past, .b-continues-future) .b-cal-event .b-cal-event-desc{
-  color:#111;
-}
-
-.b-fa-birthday-cake{
-  background:#2667c8;
-  padding:0.5em;
-  border-radius:50%;
-  color:#fff;
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.b-sidebar .b-calendar-cell{
-  transition:width 0.3s;
-}
-.b-sidebar .b-calendar-cell .b-datepicker-cell-inner{
-  transition:margin-bottom 0.3s;
-}
-.b-sidebar .b-datepicker .b-range-start, .b-sidebar .b-datepicker .b-in-range, .b-sidebar .b-datepicker .b-range-end{
-  cursor:pointer;
-  border:1px solid #3183fe;
-  background-color:var(--datepicker-selected-range-background-color);
-}
-.b-sidebar .b-datepicker .b-range-start .b-datepicker-cell-inner, .b-sidebar .b-datepicker .b-in-range .b-datepicker-cell-inner, .b-sidebar .b-datepicker .b-range-end .b-datepicker-cell-inner{
-  border:0 none;
-  background-color:initial !important;
-  color:initial !important;
-}
-.b-sidebar .b-datepicker .b-range-start .b-datepicker-cell-inner::before, .b-sidebar .b-datepicker .b-range-start .b-datepicker-cell-inner::after, .b-sidebar .b-datepicker .b-in-range .b-datepicker-cell-inner::before, .b-sidebar .b-datepicker .b-in-range .b-datepicker-cell-inner::after, .b-sidebar .b-datepicker .b-range-end .b-datepicker-cell-inner::before, .b-sidebar .b-datepicker .b-range-end .b-datepicker-cell-inner::after{
-  content:none !important;
-}
-.b-sidebar .b-datepicker .b-range-start::before, .b-sidebar .b-datepicker .b-in-range::before, .b-sidebar .b-datepicker .b-range-end::before{
-  content:none !important;
-}
-.b-sidebar .b-datepicker .b-range-start:not(:last-child), .b-sidebar .b-datepicker .b-in-range:not(:last-child){
-  border-inline-end:0 none;
-}
-.b-sidebar .b-datepicker .b-range-end:not(:first-child), .b-sidebar .b-datepicker .b-in-range:not(:first-child){
-  border-inline-start:0 none;
-}
-
