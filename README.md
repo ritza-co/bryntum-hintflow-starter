@@ -34,6 +34,6 @@ Use the following command to run the local dev server:
 npm run dev
 ```
 
-Open `http://localhost:5173`. You'll see an app with a **Dashboard** page that has a Bryntum Calendar::
+Open `http://localhost:5173`. You'll see an app with a **Dashboard** page that has a Bryntum Calendar:
 
 ![Bryntum Calendar](./assets/bryntum-calendar-app.png)
