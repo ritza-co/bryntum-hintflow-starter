@@ -7,6 +7,7 @@
 
 body {
   margin: 0;
+  width: 100vw;
 }
 
 #container {
@@ -104,5 +105,14 @@ body {
 .page-section {
   display: block;
   height: 100%;
+  width: 80vw;
   padding: 2em;
+}
+
+.b-week-number-cell .b-week-name {
+  writing-mode: tb;
+  display: flex;
+  align-items: center;
+  transform: rotateZ(180deg);
+  font-size: 0.8rem;
 }
