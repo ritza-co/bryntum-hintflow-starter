@@ -1,4 +1,4 @@
-# How to help your customers onboard with Bryntum’s HintFlow: starter code
+# How to onboard your customers using Bryntum’s HintFlow: Starter code
 
 This starter project was generated using the [Vite with JavaScript](https://vite.dev/guide/#scaffolding-your-first-vite-project) starter template.
 
